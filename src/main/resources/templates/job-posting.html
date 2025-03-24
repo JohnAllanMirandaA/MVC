@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a New Job</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+        .form-container {
+            background: white;
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, select, textarea {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 18px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Animation for smooth appearance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background: #343a40;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffb703;
+    transform: scale(1.05);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffb703;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Job Posting Application Logo" />
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/applications">Manage Applications</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/admin-dashboard">Admin Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="form-container">
+            <h2>Post a New Job</h2>
+            <form id="jobForm" action="/submit-job" method="POST">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required />
+    
+                <label for="role">Role / Position:</label>
+                <input type="text" id="role" name="role" required />
+    
+                <label for="jobType">Job Type:</label>
+                <select id="jobType" name="jobType" required>
+                    <option value="full-time">Full-Time</option>
+                    <option value="part-time">Part-Time</option>
+                </select>
+    
+                <label for="salary">Salary (Per Month):</label>
+                <input type="text" id="salary" name="salary" required />
+    
+                <label for="experience">Experience Required (in Years):</label>
+                <input type="number" id="experience" name="experience" min="0" required />
+    
+                <label for="qualifications">Qualifications:</label>
+                <textarea id="qualifications" name="qualifications" rows="3" required></textarea>
+    
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required />
+    
+                <label for="description">Job Description:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+    
+                <button type="submit">Post Job</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Job Posting Application | <a href="/terms">Terms of Service</a> | <a href="/privacy">Privacy Policy</a></p>
+    </footer>
+</body>    
+</html>
